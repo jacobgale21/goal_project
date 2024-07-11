@@ -14,6 +14,6 @@ router.post("/", postGoals);
 
 router.put("/:id", updateGoals);
 
-router.delete("/:id", deleteGoals);
+router.delete("/delete/:id", deleteGoals);
 
 module.exports = router;
