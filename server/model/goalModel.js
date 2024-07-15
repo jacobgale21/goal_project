@@ -14,6 +14,11 @@ const goalSchema = mongoose.Schema(
       type: String,
       required: [true, "Please add a date"],
     },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "User",
+    },
   },
   {
     timestamps: true,

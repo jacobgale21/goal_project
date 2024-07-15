@@ -1,5 +1,5 @@
 const mongo_url =
-  "mongodb+srv://jacobgale2003:2354JG2003@goalcluster.w89vmzy.mongodb.net/";
+  "mongodb+srv://jacobgale2003:2354Jg2003@goal-react.luugqoy.mongodb.net/";
 
 const mongoose = require("mongoose");
 
