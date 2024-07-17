@@ -5,7 +5,7 @@ function NavBar() {
         <div className="flex items-center">
           <div className="ml-10 flex items-baseline space-x-4">
             <a
-              href="/main"
+              href="/home"
               className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
               Home
@@ -15,6 +15,18 @@ function NavBar() {
               className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
               Create
+            </a>
+            <a
+              href="/goals"
+              className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Goals
+            </a>
+            <a
+              href="/profile"
+              className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Profile
             </a>
           </div>
         </div>
