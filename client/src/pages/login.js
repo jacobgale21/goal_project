@@ -1,13 +1,34 @@
 import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:8081/users/login", {
+        username,
+        password,
+      });
+
+      const token = response.data.token;
+      setUsername("");
+      setPassword("");
+      navigate("/home");
+      localStorage.setItem("token", token);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="App">
       <form
-        //   onSubmit={handleSubmit}
+        onSubmit={handleSubmit}
         className="mx-auto border-2 p-9 md:p-12 w-72 md:w-96 border-cyan-400 mt-36 h-84"
       >
         <h3 className="pb-6 test-2xl text-center text-white">Login</h3>

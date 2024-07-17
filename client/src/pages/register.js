@@ -1,15 +1,33 @@
 import { useState } from "react";
-import NavBar from "../components/Navbar";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    axios
+      .post("http://localhost:8081/users/", {
+        username,
+        email,
+        password,
+      })
+      .then(() => {
+        setUsername("");
+        setEmail("");
+        setPassword("");
+        navigate("/login");
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className="App">
       <form
-        //   onSubmit={handleSubmit}
+        onSubmit={handleSubmit}
         className="mx-auto border-2 p-9 md:p-12 w-72 md:w-96 border-cyan-400 mt-36 h-84"
       >
         <h3 className="pb-6 test-2xl text-center text-white">Sign Up</h3>
@@ -30,7 +48,7 @@ function Register() {
         </label>
         <input
           className="w-full h-8 p-1 mb-6 focus:outline-none"
-          id="username"
+          id="email"
           type="text"
           onChange={(e) => setEmail(e.target.value)}
         />
