@@ -6,6 +6,7 @@ const {
   getUser,
   editEmail,
   editUsername,
+  editPassword,
 } = require("../controllers/userControllers");
 const { protect } = require("../middleware/authMiddle");
 
@@ -15,5 +16,6 @@ router.post("/login", loginUser);
 router.get("/get", protect, getUser);
 router.patch("/editemail", protect, editEmail);
 router.patch("/editusername", protect, editUsername);
+router.patch("/editpassword", protect, editPassword);
 
 module.exports = router;

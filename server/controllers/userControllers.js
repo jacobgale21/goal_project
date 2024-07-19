@@ -95,6 +95,29 @@ const editEmail = asyncHandler(async (req, res) => {
   }
 });
 
+const editPassword = asyncHandler(async (req, res) => {
+  try {
+    const { username, password, newPassword } = req.body;
+    const user = await User.findById(req.user.id);
+
+    if (await bcrypt.compare(password, user.password)) {
+      //bcrypting new password
+      const salt = await bcrypt.genSalt(10);
+      const hashPass = await bcrypt.hash(newPassword, salt);
+
+      const { editUser } = await User.findByIdAndUpdate(req.user.id, {
+        password: hashPass,
+      });
+    } else {
+      return res.status(401).json({ error: "User or password does not match" });
+    }
+    res.status(201).json({ message: "successful password edit" });
+  } catch (err) {
+    res.status(401).json({ error: "Error in editing pasword", err });
+    console.log("Error in editing password", err);
+  }
+});
+
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: "30d",
@@ -107,4 +130,5 @@ module.exports = {
   getUser,
   editUsername,
   editEmail,
+  editPassword,
 };

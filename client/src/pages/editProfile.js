@@ -1,6 +1,7 @@
 import { useState } from "react";
 import NavBar from "../components/Navbar";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function EditProfile() {
   const [user, setUser] = useState();
@@ -9,6 +10,11 @@ function EditProfile() {
   const [password, setPassword] = useState("");
   const [changeUsername, setChangeUsername] = useState(false);
   const [changeEmail, setChangeEmail] = useState(false);
+  const navigate = useNavigate();
+
+  const editPass = (e) => {
+    navigate("/editpassword");
+  };
 
   const handleEmail = async (e) => {
     e.preventDefault();
@@ -127,10 +133,10 @@ function EditProfile() {
 
             {/* Submit Button */}
             <button
-              type="submit"
               className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              onClick={editPass}
             >
-              Save Changes
+              Edit Password
             </button>
           </form>
         </div>
