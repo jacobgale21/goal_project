@@ -13,6 +13,10 @@ function Profile() {
     navigate("/login");
   };
 
+  const editClick = () => {
+    navigate("/editprofile");
+  };
+
   useEffect(() => {
     const userData = async () => {
       const response = await axios.get("http://localhost:8081/users/get", {
@@ -32,8 +36,16 @@ function Profile() {
       <div className="container mx-auto mt-8 p-4">
         <div className="max-w-md mx-auto bg-white shadow-md rounded-lg overflow-hidden">
           <div className="p-4">
-            <h1 className="text-2xl font-semibold mb-2">{username}</h1>
-            <p className="text-gray-600 mb-4">{email}</p>
+            <h1 className="text-2xl font-semibold mb-2">
+              Username: {username}
+            </h1>
+            <p className="text-gray-600 mb-4">Email: {email}</p>
+            <button
+              onClick={editClick}
+              className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+            >
+              Edit Profile
+            </button>
             <button
               onClick={signOut}
               className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"

@@ -73,6 +73,28 @@ const getUser = asyncHandler(async (req, res) => {
   });
 });
 
+const editUsername = asyncHandler(async (req, res) => {
+  try {
+    const { username } = req.body;
+    const { user } = await User.findByIdAndUpdate(req.user.id, {
+      username: username,
+    });
+    res.status(200).json({ message: username });
+  } catch (err) {}
+});
+
+const editEmail = asyncHandler(async (req, res) => {
+  try {
+    const { email } = req.body;
+    const { user } = await User.findByIdAndUpdate(req.user.id, {
+      email: email,
+    });
+    res.status(200).json({ message: email });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: "30d",
@@ -83,4 +105,6 @@ module.exports = {
   registerUser,
   loginUser,
   getUser,
+  editUsername,
+  editEmail,
 };

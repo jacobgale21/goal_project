@@ -5,6 +5,21 @@ import axios from "axios";
 function Goals() {
   const [goals, setGoals] = useState([]);
 
+  const complete = async (id) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:8081/goals/delete/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+    } catch (err) {
+      console.log("errol", err);
+    }
+  };
+
   useEffect(() => {
     const getGoals = async () => {
       try {
@@ -32,6 +47,12 @@ function Goals() {
               <h2 className="text-xl font-semibold mb-2">{goal.title}</h2>
               <p className="text-grey-700 mb-2">{goal.description}</p>
               <p className="text-sm text-grey-500">Target Date: {goal.date}</p>
+              <button
+                onClick={() => complete(goal._id)}
+                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+              >
+                Goal Completed
+              </button>
             </div>
           ))}
         </div>

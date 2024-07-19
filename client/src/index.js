@@ -8,6 +8,7 @@ import Create from "./pages/create";
 import Profile from "./pages/profile";
 import Goals from "./pages/goalspage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import EditProfile from "./pages/editProfile";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/goals",
     element: <Goals />,
+  },
+  {
+    path: "/editprofile",
+    element: <EditProfile />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
