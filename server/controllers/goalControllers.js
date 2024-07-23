@@ -75,10 +75,49 @@ const getGoal = asyncHandler(async (req, res) => {
   }
 });
 
+const editTitle = asyncHandler(async (req, res) => {
+  try {
+    const { title } = req.body;
+    const { goal } = await Goal.findByIdAndUpdate(req.params.id, {
+      title: title,
+    });
+    res.status(200).json(goal);
+  } catch (err) {
+    res.status(400).json({ error: "Error changing title", err });
+  }
+});
+
+const editDescription = asyncHandler(async (req, res) => {
+  try {
+    const { description } = req.body;
+    const { goal } = await Goal.findByIdAndUpdate(req.params.id, {
+      description: description,
+    });
+    res.status(200).json(goal);
+  } catch (err) {
+    res.status(400).json({ error: "Error changing description", err });
+  }
+});
+
+const editDate = asyncHandler(async (req, res) => {
+  try {
+    const { date } = req.body;
+    const { goal } = await Goal.findByIdAndUpdate(req.params.id, {
+      date: date,
+    });
+    res.status(200).json(goal);
+  } catch (err) {
+    res.status(400).json({ error: "Error changing date", err });
+  }
+});
+
 module.exports = {
   getGoals,
   postGoals,
   updateGoals,
   deleteGoals,
   getGoal,
+  editTitle,
+  editDate,
+  editDescription,
 };

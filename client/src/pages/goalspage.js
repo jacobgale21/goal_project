@@ -11,6 +11,10 @@ function Goals() {
     navigate(`/timeline/${id}`);
   };
 
+  const edit = (id) => {
+    navigate(`/editgoal/${id}`);
+  };
+
   const complete = async (id) => {
     try {
       const response = await axios.delete(
@@ -61,6 +65,12 @@ function Goals() {
                   className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
                 >
                   Create Timeline
+                </button>
+                <button
+                  onClick={() => edit(goal._id)}
+                  className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+                >
+                  Edit Goal
                 </button>
                 <button
                   onClick={() => complete(goal._id)}

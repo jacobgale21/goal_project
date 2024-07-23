@@ -11,6 +11,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import EditProfile from "./pages/editProfile";
 import EditPassword from "./pages/editpassword";
 import Timeline from "./pages/timeline";
+import EditGoal from "./pages/editGoal";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
   {
     path: "/timeline/:id",
     element: <Timeline />,
+  },
+  {
+    path: "/editgoal/:id",
+    element: <EditGoal />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
