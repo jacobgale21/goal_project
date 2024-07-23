@@ -20,6 +20,9 @@ function EditPassword() {
         }
       );
       console.log("new password set");
+      setPassword("");
+      setNewPassword("");
+      setUsername("");
     } catch (err) {
       console.log(err);
     }

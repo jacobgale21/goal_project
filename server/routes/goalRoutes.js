@@ -6,11 +6,13 @@ const {
   postGoals,
   updateGoals,
   deleteGoals,
+  getGoal,
 } = require("../controllers/goalControllers");
 
 const { protect } = require("../middleware/authMiddle");
 
 router.get("/get", protect, getGoals);
+router.get("/get/:id", protect, getGoal);
 
 router.post("/", protect, postGoals);
 

@@ -10,6 +10,7 @@ import Goals from "./pages/goalspage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import EditProfile from "./pages/editProfile";
 import EditPassword from "./pages/editpassword";
+import Timeline from "./pages/timeline";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
   {
     path: "/editpassword",
     element: <EditPassword />,
+  },
+  {
+    path: "/timeline/:id",
+    element: <Timeline />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));

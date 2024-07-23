@@ -14,4 +14,6 @@ app.use("/goals", require("./routes/goalRoutes"));
 
 app.use("/users", require("./routes/userRoutes"));
 
+app.use("/timelines", require("./routes/timelineRoutes"));
+
 app.listen(8081, () => console.log("Server started"));

@@ -27,7 +27,7 @@ const updateGoals = asyncHandler(async (req, res) => {
   const goal = await Goal.findById(req.params.id);
 
   if (!goal) {
-    res.status(400).json({ error: "Goal not found" });
+    return res.status(400).json({ error: "Goal not found" });
   }
 
   const user = await User.findById(req.user.id);
@@ -65,9 +65,20 @@ const deleteGoals = asyncHandler(async (req, res) => {
 
   res.status(200).json({ id: req.params.id });
 });
+
+const getGoal = asyncHandler(async (req, res) => {
+  try {
+    const goal = await Goal.findById(req.params.id);
+    res.status(200).json(goal);
+  } catch (err) {
+    res.status(400).json({ error: "Error getting goal", err });
+  }
+});
+
 module.exports = {
   getGoals,
   postGoals,
   updateGoals,
   deleteGoals,
+  getGoal,
 };
