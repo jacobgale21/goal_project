@@ -7,12 +7,14 @@ const {
   editEmail,
   editUsername,
   editPassword,
+  getUsers,
 } = require("../controllers/userControllers");
 const { protect } = require("../middleware/authMiddle");
 
 router.post("/", registerUser);
 
 router.post("/login", loginUser);
+router.get("/getall", getUsers);
 router.get("/get", protect, getUser);
 router.patch("/editemail", protect, editEmail);
 router.patch("/editusername", protect, editUsername);

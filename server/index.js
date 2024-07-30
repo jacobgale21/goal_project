@@ -16,4 +16,6 @@ app.use("/users", require("./routes/userRoutes"));
 
 app.use("/timelines", require("./routes/timelineRoutes"));
 
+app.use("/messages", require("./routes/messageRoutes"));
+
 app.listen(8081, () => console.log("Server started"));

@@ -12,6 +12,7 @@ import EditProfile from "./pages/editProfile";
 import EditPassword from "./pages/editpassword";
 import Timeline from "./pages/timeline";
 import EditGoal from "./pages/editGoal";
+import Conversation from "./pages/conversation";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
   {
     path: "/editgoal/:id",
     element: <EditGoal />,
+  },
+  {
+    path: "/conversation/:id",
+    element: <Conversation />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));

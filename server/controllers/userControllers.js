@@ -118,6 +118,16 @@ const editPassword = asyncHandler(async (req, res) => {
   }
 });
 
+const getUsers = asyncHandler(async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).json(users);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json({ error: "Error in getting users", err });
+  }
+});
+
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: "30d",
@@ -131,4 +141,5 @@ module.exports = {
   editUsername,
   editEmail,
   editPassword,
+  getUsers,
 };
