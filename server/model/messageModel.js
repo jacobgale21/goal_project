@@ -21,6 +21,10 @@ const messageSchema = mongoose.Schema(
       ref: "Conversation",
       required: [true, "Please add a conversation"],
     },
+    sender: {
+      type: String,
+      required: [true, "Please add a sender"],
+    },
   },
   {
     timestamps: true,

@@ -123,16 +123,16 @@ function Goals() {
                     Edit Goal
                   </button>
                   <button
-                    onClick={() => complete(goal._id)}
-                    className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg transition-colors"
-                  >
-                    Goal Completed
-                  </button>
-                  <button
                     onClick={() => progress(goal._id)}
                     className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-lg transition-colors"
                   >
                     View Progress
+                  </button>
+                  <button
+                    onClick={() => complete(goal._id)}
+                    className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-colors"
+                  >
+                    Goal Completed
                   </button>
                 </div>
               </div>

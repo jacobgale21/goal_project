@@ -58,62 +58,67 @@ function EditProfile() {
     <div>
       <NavBar />
       <div className="container mx-auto mt-8 p-4">
-        <div className="max-w-md mx-auto bg-white shadow-md rounded-lg overflow-hidden">
-          <form className="p-4">
-            <h1 className="text-2xl font-semibold mb-4">Edit Profile</h1>
+        <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+          <form className="p-6">
+            <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">
+              Edit Profile
+            </h1>
 
-            <div className="flex mb-4">
-              <div className="w-full mr-2">
+            <div className="mb-6 flex items-end">
+              <div className="flex-grow mr-2">
                 <label
                   htmlFor="username"
-                  className="block text-gray-700 font-bold mb-2"
+                  className="block text-gray-700 font-semibold mb-2"
                 >
                   New Username
                 </label>
                 <input
                   type="text"
                   id="username"
-                  className="w-full px-3 py-2 border rounded shadow appearance-none text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="w-full px-4 py-2 border rounded-lg shadow-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   placeholder="Enter new username"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
               <button
-                type="submit"
-                className="px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white font-bold  rounded focus:outline-none focus:shadow-outline"
+                type="button"
+                className="h-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                 onClick={handleUsername}
               >
                 Save
               </button>
             </div>
-            <div className="flex mb-4">
-              <div className="w-full mr-2">
+
+            <div className="mb-6 flex items-end">
+              <div className="flex-grow mr-2">
                 <label
-                  htmlFor="username"
-                  className="block text-gray-700 font-bold mb-2"
+                  htmlFor="email"
+                  className="block text-gray-700 font-semibold mb-2"
                 >
                   New Email
                 </label>
                 <input
-                  type="text"
-                  id="username"
-                  className="w-full px-3 py-2 border rounded shadow appearance-none text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  placeholder="Enter new username"
+                  type="email"
+                  id="email"
+                  className="w-full px-4 py-2 border rounded-lg shadow-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  placeholder="Enter new email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <button
-                type="submit"
-                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="button"
+                className="h-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                 onClick={handleEmail}
               >
                 Save
               </button>
             </div>
+
             <button
-              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="button"
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 mt-4"
               onClick={editPass}
             >
               Edit Password

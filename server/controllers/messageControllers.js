@@ -21,6 +21,7 @@ const sendMessage = asyncHandler(async (req, res) => {
       receiverId: req.params.id,
       message: message,
       conversation: conversation._id,
+      sender: req.user.username,
     });
 
     await Promise.all([newMessage.save(), conversation.save()]);
