@@ -26,39 +26,52 @@ function Login() {
   };
 
   return (
-    <div className="App">
+    <div className="App flex items-center justify-center min-h-screen bg-white-900">
       <form
         onSubmit={handleSubmit}
-        className="mx-auto border-2 p-9 md:p-12 w-72 md:w-96 border-cyan-400 mt-36 h-84"
+        className="bg-white-800 text-white border border-black p-8 md:p-10 w-80 md:w-96 rounded-lg shadow-lg"
       >
-        <h3 className="pb-6 test-2xl text-center text-white">Login</h3>
+        <h3 className="text-3xl text-black font-bold text-center mb-6">
+          Login
+        </h3>
 
-        {/* <button className="px-3 y-1 rounded-sm bg-cyan-400">Sign Up</button> */}
+        <div className="mb-4">
+          <label className="block mb-2 text-lg text-black" htmlFor="username">
+            Username
+          </label>
+          <input
+            className="w-full h-10 px-3 py-2 border border-black rounded-md bg-white-700 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+            id="username"
+            type="text"
+            placeholder="Enter Username"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
 
-        <label className="block mb-1 test-xl text-cyan-400" htmlFor="username">
-          Username
-        </label>
-        <input
-          className="w-full h-8 p-1 mb-6 focus:outline-none"
-          id="username"
-          type="text"
-          onChange={(e) => setUsername(e.target.value)}
-        />
+        <div className="mb-6">
+          <label className="block mb-2 text-lg text-black" htmlFor="password">
+            Password
+          </label>
+          <input
+            className="w-full h-10 px-3 py-2 border border-black rounded-md bg-white-700 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+            id="password"
+            type="password"
+            placeholder="Enter Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
 
-        <label className="block mb-1 test-xl text-cyan-400" htmlFor="password">
-          Password
-        </label>
-        <input
-          className="w-full h-8 p-1 mb-6 focus:outline-none"
-          id="password"
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <div className="flex justify-between">
-          <button className="px-3 y-1 rounded-sm bg-cyan-400" type="button">
+        <div className="flex justify-between items-center">
+          <button
+            className="px-4 py-2 bg-gray-600 hover:bg-gray-500 text-white font-semibold rounded-md transition duration-300"
+            type="button"
+          >
             Cancel
           </button>
-          <button className="px-3 y-1 rounded-sm bg-cyan-400" type="submit">
+          <button
+            className="px-4 py-2 bg-blue-400 hover:bg-blue-500 text-white font-semibold rounded-md transition duration-300"
+            type="submit"
+          >
             Submit
           </button>
         </div>

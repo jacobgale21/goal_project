@@ -56,12 +56,12 @@ function Conversation() {
             <div
               key={i}
               className={`flex ${
-                chat.sender === "You" ? "justify-end" : "justify-start"
+                chat.senderId === id ? "justify-end" : "justify-start"
               } mb-2`}
             >
               <div
                 className={`px-4 py-2 rounded-lg max-w-xs ${
-                  chat.sender === "You"
+                  chat.senderId === id
                     ? "bg-blue-500 text-white self-end"
                     : "bg-white text-gray-700 self-start shadow"
                 }`}
