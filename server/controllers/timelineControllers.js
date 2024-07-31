@@ -5,7 +5,7 @@ const User = require("../model/userModel");
 const Timeline = require("../model/timelineModel");
 
 const getTimelines = asyncHandler(async (req, res) => {
-  const timelines = await Timeline.find({ goal: req.params.goalid });
+  const timelines = await Timeline.find({ goal: req.params.id });
   res.status(200).json(timelines);
 });
 

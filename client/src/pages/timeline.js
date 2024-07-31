@@ -30,25 +30,6 @@ function Timeline() {
     }
   };
 
-  useEffect(() => {
-    const getGoal = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:8081/goals/get/${id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
-        );
-        setGoal(response.data);
-      } catch (err) {
-        console.log("Error getting goal", err);
-      }
-    };
-    getGoal();
-  });
-
   return (
     <div>
       <NavBar />

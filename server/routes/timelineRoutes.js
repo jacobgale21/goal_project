@@ -11,7 +11,7 @@ const {
 
 const { protect } = require("../middleware/authMiddle");
 
-router.get("/get/:goalid", protect, getTimelines);
+router.get("/get/:id", protect, getTimelines);
 
 router.post("/create/:id", protect, postTimeline);
 
