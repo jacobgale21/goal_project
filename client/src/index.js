@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import Register from "./pages/register";
-import Home from "./pages/home";
 import Login from "./pages/login";
 import Create from "./pages/create";
 import Profile from "./pages/profile";
@@ -14,6 +13,8 @@ import Timeline from "./pages/timeline";
 import EditGoal from "./pages/editGoal";
 import Conversation from "./pages/conversation";
 import Progress from "./pages/progress";
+import Messaging from "./pages/messaging";
+import Home from "./pages/home";
 
 const router = createBrowserRouter([
   {
@@ -21,8 +22,8 @@ const router = createBrowserRouter([
     element: <Register />,
   },
   {
-    path: "/home",
-    element: <Home />,
+    path: "/chat",
+    element: <Messaging />,
   },
   {
     path: "/login",
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
   {
     path: "/progress/:id",
     element: <Progress />,
+  },
+  {
+    path: "/home",
+    element: <Home />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));

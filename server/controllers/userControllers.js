@@ -128,6 +128,55 @@ const getUsers = asyncHandler(async (req, res) => {
   }
 });
 
+const editPublic = asyncHandler(async (req, res) => {
+  try {
+    const { public } = req.body;
+    const user = await User.findByIdAndUpdate(
+      req.user.id,
+      {
+        public: public,
+      },
+      { new: true }
+    );
+    res.status(200).json(user.public);
+  } catch (err) {
+    res.status(400).json({ error: "Error in changing public", err });
+  }
+});
+
+const follow = asyncHandler(async (req, res) => {
+  try {
+    const sender = await User.findById(req.user.id);
+    const receiver = await User.findById(req.params.id);
+
+    const follow = sender.following.includes(req.params.id);
+
+    if (!follow) {
+      sender.following.push(req.params.id);
+      receiver.followers.push(req.user.id);
+    }
+
+    await Promise.all([sender.save(), receiver.save()]);
+
+    res.status(200).json(sender);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json({ error: "Error in editing following", err });
+  }
+});
+
+const getFollowing = asyncHandler(async (req, res) => {
+  try {
+    const users = await User.find({
+      followers: { $all: [req.user.id] },
+    });
+    res.status(200).json(users);
+  } catch (err) {
+    res.status(400).json({ error: "Error in getting following" });
+    console.log(err);
+  }
+});
+
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: "30d",
@@ -142,4 +191,7 @@ module.exports = {
   editEmail,
   editPassword,
   getUsers,
+  editPublic,
+  follow,
+  getFollowing,
 };

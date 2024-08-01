@@ -16,6 +16,22 @@ const userSchema = mongoose.Schema(
       type: String,
       required: [true, "Please add a password"],
     },
+    following: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
+    followers: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
+    public: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,
