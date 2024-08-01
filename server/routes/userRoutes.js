@@ -11,6 +11,7 @@ const {
   editPublic,
   getFollowing,
   follow,
+  getFollowers,
 } = require("../controllers/userControllers");
 const { protect } = require("../middleware/authMiddle");
 
@@ -20,6 +21,7 @@ router.post("/login", loginUser);
 router.get("/getall", getUsers);
 router.get("/get", protect, getUser);
 router.get("/get/following", protect, getFollowing);
+router.get("/get/followers", protect, getFollowers);
 
 router.patch("/editemail", protect, editEmail);
 router.patch("/editusername", protect, editUsername);

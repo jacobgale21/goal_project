@@ -177,6 +177,18 @@ const getFollowing = asyncHandler(async (req, res) => {
   }
 });
 
+const getFollowers = asyncHandler(async (req, res) => {
+  try {
+    const users = await User.find({
+      following: { $all: [req.user.id] },
+    });
+    res.status(200).json(users);
+  } catch (err) {
+    res.status(400).json({ error: "Error in getting following" });
+    console.log(err);
+  }
+});
+
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: "30d",
@@ -194,4 +206,5 @@ module.exports = {
   editPublic,
   follow,
   getFollowing,
+  getFollowers,
 };

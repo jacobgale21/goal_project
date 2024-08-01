@@ -75,6 +75,16 @@ const getGoal = asyncHandler(async (req, res) => {
   }
 });
 
+const getUserGoals = asyncHandler(async (req, res) => {
+  try {
+    const goals = await Goal.find({ user: req.params.id });
+    res.status(200).json(goals);
+  } catch (err) {
+    res.status(400).json({ error: "Error in getting user goals" });
+    console.log(err);
+  }
+});
+
 const editTitle = asyncHandler(async (req, res) => {
   try {
     const { title } = req.body;
@@ -120,4 +130,5 @@ module.exports = {
   editTitle,
   editDate,
   editDescription,
+  getUserGoals,
 };

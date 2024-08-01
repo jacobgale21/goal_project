@@ -28,6 +28,7 @@ function Goals() {
           },
         }
       );
+      window.location.reload();
     } catch (err) {
       console.log("errol", err);
     }
@@ -47,7 +48,7 @@ function Goals() {
       }
     };
     getGoals();
-  });
+  }, [setGoals]);
 
   return (
     <div>

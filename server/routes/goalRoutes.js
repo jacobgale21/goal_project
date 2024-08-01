@@ -10,12 +10,14 @@ const {
   editTitle,
   editDescription,
   editDate,
+  getUserGoals,
 } = require("../controllers/goalControllers");
 
 const { protect } = require("../middleware/authMiddle");
 
 router.get("/get", protect, getGoals);
 router.get("/get/:id", protect, getGoal);
+router.get("/getuser/:id", protect, getUserGoals);
 
 router.post("/", protect, postGoals);
 

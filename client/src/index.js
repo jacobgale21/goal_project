@@ -15,6 +15,9 @@ import Conversation from "./pages/conversation";
 import Progress from "./pages/progress";
 import Messaging from "./pages/messaging";
 import Home from "./pages/home";
+import Following from "./pages/following";
+import Follower from "./pages/follower";
+import UserGoals from "./pages/userGoals";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +71,18 @@ const router = createBrowserRouter([
   {
     path: "/home",
     element: <Home />,
+  },
+  {
+    path: "/following",
+    element: <Following />,
+  },
+  {
+    path: "/followers",
+    element: <Follower />,
+  },
+  {
+    path: "/goals/:id",
+    element: <UserGoals />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
