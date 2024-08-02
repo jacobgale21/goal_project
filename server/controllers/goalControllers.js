@@ -15,6 +15,7 @@ const postGoals = asyncHandler(async (req, res) => {
       description: req.body.description,
       date: req.body.date,
       user: req.user.id,
+      username: req.user.username,
     });
 
     res.status(200).json(newGoal);
@@ -121,6 +122,18 @@ const editDate = asyncHandler(async (req, res) => {
   }
 });
 
+const getPosts = asyncHandler(async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+    const following = user.following;
+
+    const goals = await Goal.find({ user: { $in: following } });
+    res.status(200).json(goals);
+  } catch (err) {
+    res.status(400).json({ error: "Error in getting posts" });
+  }
+});
+
 module.exports = {
   getGoals,
   postGoals,
@@ -131,4 +144,5 @@ module.exports = {
   editDate,
   editDescription,
   getUserGoals,
+  getPosts,
 };
