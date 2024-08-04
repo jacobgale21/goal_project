@@ -61,7 +61,7 @@ function Create() {
               Goal Deadline
             </label>
             <input
-              type="text"
+              type="date"
               id="date"
               className="w-full px-3 py-2 border border-black rounded-md focus:outline-none focus:border-blue-500"
               placeholder="Enter deadline"

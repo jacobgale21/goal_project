@@ -2,6 +2,7 @@ import NavBar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Explore from "./explore";
 
 function Profile() {
   const navigate = useNavigate();

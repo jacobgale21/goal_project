@@ -31,9 +31,17 @@ function Home() {
     <div className="bg-gray-50 min-h-screen">
       <NavBar />
       <div className="max-w-3xl mx-auto py-8">
-        <h1 className="text-4xl font-bold text-center mb-8 text-black">
-          Posts
-        </h1>
+        <div className="flex justify-center items-center relative mb-11 mt-4">
+          <h1 className="text-4xl font-bold text-black absolute left-1/2 transform -translate-x-1/2">
+            Goals
+          </h1>
+          <button
+            onClick={() => navigate("/explore")}
+            className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition-colors absolute right-0"
+          >
+            Explore
+          </button>
+        </div>
         {goals?.map((goal) => (
           <div
             key={goal._id}

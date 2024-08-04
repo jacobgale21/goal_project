@@ -11,7 +11,7 @@ const goalSchema = mongoose.Schema(
       reqired: [true, "Please add a description"],
     },
     date: {
-      type: String,
+      type: Date,
       required: [true, "Please add a date"],
     },
     user: {

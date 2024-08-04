@@ -18,6 +18,7 @@ import Home from "./pages/home";
 import Following from "./pages/following";
 import Follower from "./pages/follower";
 import UserGoals from "./pages/userGoals";
+import Explore from "./pages/explore";
 
 const router = createBrowserRouter([
   {
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
   {
     path: "/goals/:id",
     element: <UserGoals />,
+  },
+  {
+    path: "/explore",
+    element: <Explore />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));

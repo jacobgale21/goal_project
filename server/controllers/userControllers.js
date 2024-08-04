@@ -189,6 +189,18 @@ const getFollowers = asyncHandler(async (req, res) => {
   }
 });
 
+const getNonFollowers = asyncHandler(async (req, res) => {
+  try {
+    const users = await User.find({
+      _id: { $nin: req.user.following },
+    });
+    res.status(200).json(users);
+  } catch (err) {
+    res.status(400).json("error in getting non followers");
+    console.log(err);
+  }
+});
+
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: "30d",
@@ -207,4 +219,5 @@ module.exports = {
   follow,
   getFollowing,
   getFollowers,
+  getNonFollowers,
 };

@@ -76,51 +76,52 @@ function EditGoal() {
           <form className="p-4">
             <h1 className="text-2xl font-semibold mb-4">Edit Goal</h1>
 
-            <div className="flex mb-4">
-              <div className="w-full mr-2">
+            <div className="mb-6 flex items-end">
+              <div className="flex-grow mr-2">
                 <label
                   htmlFor="title"
-                  className="block text-gray-700 font-bold mb-2"
+                  className="block text-gray-700 font-semibold mb-2"
                 >
                   New Title
                 </label>
                 <input
                   type="text"
                   id="title"
-                  className="w-full px-3 py-2 border rounded shadow appearance-none text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  placeholder="Enter new title"
+                  className="w-full px-4 py-2 border rounded-lg shadow-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  placeholder="Enter new Title"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                 />
               </div>
               <button
-                type="submit"
-                className="px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white font-bold  rounded focus:outline-none focus:shadow-outline"
+                type="button"
+                className="h-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                 onClick={handleTitle}
               >
                 Save
               </button>
             </div>
-            <div className="flex mb-4">
-              <div className="w-full mr-2">
+
+            <div className="mb-6 flex items-end">
+              <div className="flex-grow mr-2">
                 <label
                   htmlFor="date"
-                  className="block text-gray-700 font-bold mb-2"
+                  className="block text-gray-700 font-semibold mb-2"
                 >
                   New Date
                 </label>
                 <input
-                  type="text"
+                  type="date"
                   id="date"
-                  className="w-full px-3 py-2 border rounded shadow appearance-none text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="w-full px-4 py-2 border rounded-lg shadow-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   placeholder="Enter new date"
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
                 />
               </div>
               <button
-                type="submit"
-                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="button"
+                className="h-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                 onClick={handleDate}
               >
                 Save
