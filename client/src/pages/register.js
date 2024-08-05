@@ -75,8 +75,9 @@ function Register() {
           <button
             className="px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white font-semibold rounded-md transition duration-300"
             type="button"
+            onClick={() => navigate("/login")}
           >
-            Cancel
+            Login
           </button>
           <button
             className="px-4 py-2 bg-blue-400 hover:bg-blue-500 text-white font-semibold rounded-md transition duration-300"
